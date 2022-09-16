@@ -1,4 +1,4 @@
-package com.wojdeb.citysearch.ui.main.domain
+package com.wojdeb.citysearch.feature.search.domain
 
 import com.wojdeb.citysearch.networking.GeoNamesRepository
 import com.wojdeb.citysearch.networking.domain.toDomain

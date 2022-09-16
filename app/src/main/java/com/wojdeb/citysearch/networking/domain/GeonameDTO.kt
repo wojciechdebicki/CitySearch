@@ -1,6 +1,6 @@
 package com.wojdeb.citysearch.networking.domain
 
-import com.wojdeb.citysearch.ui.main.domain.Location
+import com.wojdeb.citysearch.feature.search.domain.Location
 
 data class GeonameDTO(
     var adminCode1: String,

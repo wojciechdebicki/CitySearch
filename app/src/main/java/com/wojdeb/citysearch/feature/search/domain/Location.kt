@@ -1,4 +1,4 @@
-package com.wojdeb.citysearch.ui.main.domain
+package com.wojdeb.citysearch.feature.search.domain
 
 data class Location(
     val cityName: String,

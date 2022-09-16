@@ -1,4 +1,4 @@
-package com.wojdeb.citysearch.ui.main
+package com.wojdeb.citysearch.feature.search.ui
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.wojdeb.citysearch.common.layoutInflater
 import com.wojdeb.citysearch.databinding.LocationRowBinding
-import com.wojdeb.citysearch.ui.main.LocationAdapter.LocationViewHolder
-import com.wojdeb.citysearch.ui.main.domain.Location
+import com.wojdeb.citysearch.feature.search.ui.LocationAdapter.LocationViewHolder
+import com.wojdeb.citysearch.feature.search.domain.Location
 
 object LocationDiffUtils : DiffUtil.ItemCallback<Location>() {
     override fun areItemsTheSame(oldLocation: Location, newLocation: Location) =

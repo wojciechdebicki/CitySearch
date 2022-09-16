@@ -1,4 +1,4 @@
-package com.wojdeb.citysearch.ui.main
+package com.wojdeb.citysearch.feature.search.ui
 
 import android.os.Bundle
 import android.view.View
@@ -9,13 +9,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wojdeb.citysearch.R
 import com.wojdeb.citysearch.common.viewBinding
 import com.wojdeb.citysearch.databinding.FragmentMainBinding
-import com.wojdeb.citysearch.ui.main.domain.Location
+import com.wojdeb.citysearch.feature.search.SearchViewModel
+import com.wojdeb.citysearch.feature.search.State
+import com.wojdeb.citysearch.feature.search.domain.Location
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : Fragment(R.layout.fragment_main) {
+class SearchFragment : Fragment(R.layout.fragment_main) {
     private val binding by viewBinding(FragmentMainBinding::bind)
-    private val viewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<SearchViewModel>()
 
     private val locationAdapter = LocationAdapter()
 
@@ -58,6 +60,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = SearchFragment()
     }
 }

@@ -1,11 +1,11 @@
-package com.wojdeb.citysearch.ui.main
+package com.wojdeb.citysearch.feature.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.wojdeb.citysearch.ui.main.domain.FetchLocationsUseCase
-import com.wojdeb.citysearch.ui.main.domain.Location
+import com.wojdeb.citysearch.feature.search.domain.FetchLocationsUseCase
+import com.wojdeb.citysearch.feature.search.domain.Location
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,7 +17,7 @@ sealed class State {
 }
 
 @HiltViewModel
-class MainViewModel @Inject constructor(
+class SearchViewModel @Inject constructor(
     private val fetchLocationsUseCase: FetchLocationsUseCase
 ) : ViewModel() {
 
