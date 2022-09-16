@@ -13,12 +13,16 @@ class FetchLocationsUseCase @Inject constructor(private val geoNamesRepository: 
                 .toMutableList()
 
         //We should use sorting for it, e.g. custom comparator
-        val usElements = sorted.filter { it.countryName == "United States" }
+        val usElements = sorted.filter { it.countryName == US }
 
         sorted.removeAll(usElements)
         sorted.addAll(0, usElements)
 
         return sorted
+    }
+
+    companion object {
+        private const val US = "United States"
     }
 
 }
