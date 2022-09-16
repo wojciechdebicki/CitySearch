@@ -30,13 +30,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         viewModel.viewState.observe(viewLifecycleOwner) {
             when (it) {
-                is State.Init -> {}
+                is State.Init -> handleInit()
                 is State.Loading -> handleLoading()
                 is State.Fetched -> handleFetched(it.items)
             }
         }
 
-        viewModel.getLocations("san fran")
+        binding.search.setOnClickListener {
+            viewModel.getLocations(binding.searchInput.text.toString())
+        }
+    }
+
+    private fun handleInit() {
+        binding.progress.visibility = View.GONE
+        binding.locations.visibility = View.GONE
     }
 
     private fun handleFetched(items: List<Location>) {
