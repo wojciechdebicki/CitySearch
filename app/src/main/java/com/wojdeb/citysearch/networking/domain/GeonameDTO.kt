@@ -1,6 +1,8 @@
 package com.wojdeb.citysearch.networking.domain
 
-data class GeoName(
+import com.wojdeb.citysearch.ui.main.domain.Location
+
+data class GeonameDTO(
     var adminCode1: String,
     var lng: String,
     var geonameId: Int,
@@ -17,3 +19,6 @@ data class GeoName(
     var lat: String,
     var fcode: String,
 )
+
+fun GeonameDTO.toDomain() =
+    Location(cityName = toponymName, stateName = adminName1, countryName = countryName)

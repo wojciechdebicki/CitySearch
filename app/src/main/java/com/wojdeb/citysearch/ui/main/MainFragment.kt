@@ -23,7 +23,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         lifecycleScope.launch {
             val locations = viewModel.getLocations("san fran")
 
-            Toast.makeText(context, "Fetched " + locations.totalResultsCount, Toast.LENGTH_LONG)
+            Toast.makeText(context, "Fetched " + locations.first().cityName, Toast.LENGTH_LONG)
                 .show()
         }
     }
