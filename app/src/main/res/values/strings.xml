@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CitySearch</string>
+    <string name="search">Search</string>
+    <string name="search_input_hint">Search cities</string>
 </resources>
