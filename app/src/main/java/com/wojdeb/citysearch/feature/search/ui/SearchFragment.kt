@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wojdeb.citysearch.R
+import com.wojdeb.citysearch.common.observe
 import com.wojdeb.citysearch.common.viewBinding
 import com.wojdeb.citysearch.databinding.FragmentMainBinding
 import com.wojdeb.citysearch.feature.search.SearchViewModel
@@ -30,7 +32,7 @@ class SearchFragment : Fragment(R.layout.fragment_main) {
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
 
-        viewModel.viewState.observe(viewLifecycleOwner) {
+        viewModel.myUiState.observe(lifecycleScope) {
             when (it) {
                 is State.Init -> handleInit()
                 is State.Loading -> handleLoading()

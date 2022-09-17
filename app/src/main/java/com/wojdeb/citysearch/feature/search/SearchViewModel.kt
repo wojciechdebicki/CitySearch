@@ -1,12 +1,12 @@
 package com.wojdeb.citysearch.feature.search
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wojdeb.citysearch.feature.search.domain.FetchLocationsUseCase
 import com.wojdeb.citysearch.feature.search.domain.Location
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,15 +21,15 @@ class SearchViewModel @Inject constructor(
     private val fetchLocationsUseCase: FetchLocationsUseCase
 ) : ViewModel() {
 
-    private val _viewState = MutableLiveData<State>(State.Init)
-    val viewState: LiveData<State> = _viewState
+    private val _myUiState = MutableStateFlow<State>(State.Init)
+    val myUiState: StateFlow<State> = _myUiState
 
     fun getLocations(text: String) {
-        _viewState.postValue(State.Loading)
+        _myUiState.value = State.Loading
 
         viewModelScope.launch {
             val items = fetchLocationsUseCase.execute(text)
-            _viewState.postValue(State.Fetched(items))
+            _myUiState.value = State.Fetched(items)
         }
     }
 }

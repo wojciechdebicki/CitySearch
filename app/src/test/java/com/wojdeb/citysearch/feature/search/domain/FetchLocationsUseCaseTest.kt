@@ -14,11 +14,7 @@ import org.junit.rules.TestRule
 
 @ExperimentalCoroutinesApi
 internal class FetchLocationsUseCaseTest {
-
     private val fetchLocationsRepository = mockk<LocationsRepository>()
-
-    @get:Rule
-    val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
 
     @get:Rule
     val testCoroutineRule = TestCoroutineRule()
