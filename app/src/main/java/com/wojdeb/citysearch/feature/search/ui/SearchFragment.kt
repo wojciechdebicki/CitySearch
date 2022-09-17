@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_main) {
-    private val binding by viewBinding(FragmentMainBinding::bind)
+    val binding by viewBinding(FragmentMainBinding::bind)
     private val viewModel by viewModels<SearchViewModel>()
 
     private val locationAdapter = LocationAdapter()
