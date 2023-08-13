@@ -7,13 +7,11 @@ import com.wojdeb.citysearch.feature.search.domain.FetchLocationsUseCase
 import com.wojdeb.citysearch.feature.search.domain.Location
 import io.mockk.coEvery
 import io.mockk.mockk
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Rule
 import org.junit.Test
 
-@ExperimentalCoroutinesApi
 internal class SearchViewModelTest {
     private val fetchLocationsUseCase = mockk<FetchLocationsUseCase>()
 

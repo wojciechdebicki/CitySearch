@@ -1,12 +1,10 @@
 package com.wojdeb.citysearch.common
 
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 
-@ExperimentalCoroutinesApi
 fun <T> StateFlow<T>.executeTest(scope: TestScope, callback: (List<T>) -> Unit) {
     val values = arrayListOf<T>()
 

@@ -1,18 +1,14 @@
 package com.wojdeb.citysearch.feature.search.domain
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.wojdeb.citysearch.common.TestCoroutineRule
 import com.wojdeb.citysearch.networking.LocationsRepository
 import io.mockk.coEvery
 import io.mockk.mockk
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Rule
 import org.junit.Test
-import org.junit.rules.TestRule
 
-@ExperimentalCoroutinesApi
 internal class FetchLocationsUseCaseTest {
     private val fetchLocationsRepository = mockk<LocationsRepository>()
 
