@@ -53,16 +53,16 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    implementation("com.google.dagger:hilt-android:2.43.2")
-    kapt("com.google.dagger:hilt-compiler:2.43.2")
+    implementation("com.google.dagger:hilt-android:2.47")
+    kapt("com.google.dagger:hilt-compiler:2.47")
 
     // For instrumentation tests
-    androidTestImplementation("com.google.dagger:hilt-android-testing:2.43.2")
-    kaptAndroidTest("com.google.dagger:hilt-compiler:2.43.2")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.47")
+    kaptAndroidTest("com.google.dagger:hilt-compiler:2.47")
 
     // For local unit tests
-    testImplementation("com.google.dagger:hilt-android-testing:2.43.2")
-    kaptTest("com.google.dagger:hilt-compiler:2.43.2")
+    testImplementation("com.google.dagger:hilt-android-testing:2.47")
+    kaptTest("com.google.dagger:hilt-compiler:2.47")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
     implementation("androidx.fragment:fragment-ktx:1.6.1")

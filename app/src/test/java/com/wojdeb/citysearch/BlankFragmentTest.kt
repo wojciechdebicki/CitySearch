@@ -40,6 +40,7 @@ class BlankFragmentTest {
     @Before
     fun init() {
         hiltAndroidRule.inject()
+        every { mockMyViewModel.addCloseable(any()) } just runs
     }
 
     @Test
@@ -48,8 +49,9 @@ class BlankFragmentTest {
         val location = Location("1", "2", "3")
         val location2 = Location("1", "2", "3")
 
-        val stateMutableStateFlow =
-            MutableStateFlow<State>(State.Fetched(listOf(location, location2)))
+        val state = State.Fetched(listOf(location, location2))
+        val stateMutableStateFlow = MutableStateFlow<State>(state)
+
         every { mockMyViewModel.myUiState } returns stateMutableStateFlow.asStateFlow()
         every { mockMyViewModel.getLocations(any()) } just runs
 
