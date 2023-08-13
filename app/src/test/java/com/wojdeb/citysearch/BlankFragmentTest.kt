@@ -56,10 +56,8 @@ class BlankFragmentTest {
         launchFragmentInHiltContainer<SearchFragment> {
             this as SearchFragment
 
-
             binding.searchInput.setText("san franci", TextView.BufferType.EDITABLE)
             binding.search.performClick()
-
 
             assertThat(binding.locations.adapter!!.itemCount).isEqualTo(2)
         }
