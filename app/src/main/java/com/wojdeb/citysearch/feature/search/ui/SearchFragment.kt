@@ -8,13 +8,14 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wojdeb.citysearch.R
-import com.wojdeb.citysearch.common.observe
 import com.wojdeb.citysearch.common.viewBinding
 import com.wojdeb.citysearch.databinding.FragmentMainBinding
 import com.wojdeb.citysearch.feature.search.SearchViewModel
 import com.wojdeb.citysearch.feature.search.State
 import com.wojdeb.citysearch.feature.search.domain.Location
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_main) {
@@ -32,13 +33,13 @@ class SearchFragment : Fragment(R.layout.fragment_main) {
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
 
-        viewModel.myUiState.observe(lifecycleScope) {
+        viewModel.myUiState.onEach {
             when (it) {
                 is State.Init -> handleInit()
                 is State.Loading -> handleLoading()
                 is State.Fetched -> handleFetched(it.items)
             }
-        }
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         binding.search.setOnClickListener {
             viewModel.getLocations(binding.searchInput.text.toString())

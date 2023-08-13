@@ -7,6 +7,7 @@ import com.wojdeb.citysearch.feature.search.domain.Location
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,7 +23,7 @@ class SearchViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _myUiState = MutableStateFlow<State>(State.Init)
-    val myUiState: StateFlow<State> = _myUiState
+    val myUiState: StateFlow<State> = _myUiState.asStateFlow()
 
     fun getLocations(text: String) {
         _myUiState.value = State.Loading
